@@ -16,7 +16,7 @@ final class DeliveriesListViewModel {
     var isPaginationNeeded = true
     var servicesCount = 0
     
-    
+    // Below function is only for duplication of data and check the pagination as server response is returning 4 elements only
     func duplicateObjects(array: [Delivery], n: Int) -> [Delivery] {
       var newArray = [Delivery]()
       for _ in 0..<n {
@@ -36,7 +36,6 @@ final class DeliveriesListViewModel {
         Webservice.instance.fetchDeliveries(offset: offset, limit: pageSize) { (result: Result<[Delivery], NetworkError>) in
             switch result {
             case .success(let deliveries):
-                // Process the fetched deliveries
                 print(deliveries)
                 var nextDeliver = [Delivery]()
                 nextDeliver.append(contentsOf: deliveries)

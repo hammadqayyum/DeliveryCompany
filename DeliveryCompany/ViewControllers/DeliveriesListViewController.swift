@@ -8,7 +8,6 @@
 import UIKit
 
 final class DeliveriesListViewController: UIViewController {
-    
     private var activityIndicator: UIActivityIndicatorView!
     lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -40,8 +39,7 @@ final class DeliveriesListViewController: UIViewController {
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
-        tableView.reloadData()
-        activityIndicator = UIActivityIndicatorView(style: .large)
+        activityIndicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 44))
         activityIndicator.center = view.center
         view.addSubview(activityIndicator)
     }
@@ -95,6 +93,7 @@ extension DeliveriesListViewController: UITableViewDelegate, UITableViewDataSour
         if scrollView.contentSize.height > 0 && scrollView.contentOffset.y > scrollView.contentSize.height - scrollView.bounds.height {
             if  DeliveriesListViewModel.instance.isPaginationNeeded && DeliveriesListViewModel.instance.servicesCount == 0 {
                 startLoading()
+                tableView.tableFooterView = activityIndicator
                 DeliveriesListViewModel.instance.fetchDeliveries(readFromLocalStorage: true)
             }
         }
@@ -104,6 +103,7 @@ extension DeliveriesListViewController: UITableViewDelegate, UITableViewDataSour
 extension DeliveriesListViewController {
     @objc func deliveriesFetched() {
         stopLoading()
+        tableView.tableFooterView = nil
         tableView.reloadData()
     }
 }
