@@ -31,28 +31,23 @@ class DeliverySummaryFvtBtnView: UIButton {
         label.translatesAutoresizingMaskIntoConstraints = false
         imageBtnView.translatesAutoresizingMaskIntoConstraints = false
         
-        label.trailingAnchor.constraint(equalTo: imageBtnView.leadingAnchor, constant: -10).isActive = true
+        label.trailingAnchor.constraint(equalTo: imageBtnView.leadingAnchor, constant: -DeliverySummaryButtonConstants.horizontalSpacing).isActive = true
         
-        label.topAnchor.constraint(equalTo: topAnchor, constant: 15).isActive = true
-        label.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -15).isActive = true
+        label.topAnchor.constraint(equalTo: topAnchor, constant: DeliverySummaryButtonConstants.verticalSpacing).isActive = true
+        label.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -DeliverySummaryButtonConstants.verticalSpacing).isActive = true
         imageBtnView.centerYAnchor.constraint(equalTo: label.centerYAnchor).isActive = true
-        imageBtnView.heightAnchor.constraint(equalToConstant: 25).isActive = true
-        imageBtnView.widthAnchor.constraint(equalToConstant: 25).isActive = true
+        imageBtnView.heightAnchor.constraint(equalToConstant: DeliverySummaryButtonConstants.imageWidhtHeight).isActive = true
+        imageBtnView.widthAnchor.constraint(equalToConstant: DeliverySummaryButtonConstants.imageWidhtHeight).isActive = true
 
         
         setLabelText("Add to Favourites")
         setImage(isFav: false)
-        layer.borderWidth = 2
-        layer.borderColor = UIColor(red: 200/255, green: 200/255, blue: 200/255, alpha: 1.0).cgColor
-
-        layer.cornerRadius = 10
-        self.backgroundColor = UIColor.init(red: 237/255, green: 237/255, blue: 237/255, alpha: 0.8)
-
+        setupCustomBtnAppearance()
     }
     
     func setImage(isFav: Bool) {
-        imageBtnView.image = UIImage(systemName: isFav ? "heart.fill" : "heart.slash.fill")
-        imageBtnView.tintColor = UIColor.red
+        imageBtnView.image = UIImage(systemName: isFav ? DeliverySummaryButtonConstants.fav : DeliverySummaryButtonConstants.notFav)
+        imageBtnView.tintColor = UIColor.white
     }
     
     override func layoutSubviews() {

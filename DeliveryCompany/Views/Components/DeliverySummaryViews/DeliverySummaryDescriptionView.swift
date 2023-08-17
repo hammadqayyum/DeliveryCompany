@@ -18,6 +18,9 @@ final class DeliverySummaryDescriptionView: UIView {
     private let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.layer.borderWidth = 1
+        imageView.layer.borderColor = UIColor.white.cgColor
+        imageView.clipsToBounds = true
         return imageView
     }()
     
@@ -44,25 +47,26 @@ final class DeliverySummaryDescriptionView: UIView {
         if let image = image {
             imageView.image = image
         } else {
-            imageView.image = UIImage(systemName: "person.circle.fill")
+            imageView.image = UIImage(systemName: PlaceHolderImage.placeHolderImage)
         }
     }
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             // Constraints for label
-            label.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
-            label.topAnchor.constraint(equalTo: self.topAnchor, constant: 16),
-            label.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
+            label.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: DeliverySummaryConstants.verticalSpacing),
+            label.topAnchor.constraint(equalTo: self.topAnchor, constant: DeliverySummaryConstants.verticalSpacing),
+            label.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -DeliverySummaryConstants.verticalSpacing),
             
             
             // Constraints for imageView
-            imageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
-            imageView.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 16),
-            imageView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -16),
-            imageView.widthAnchor.constraint(equalToConstant: 180),
-            imageView.heightAnchor.constraint(equalToConstant: 180)
+            imageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: DeliverySummaryConstants.verticalSpacing),
+            imageView.topAnchor.constraint(equalTo: label.bottomAnchor, constant: DeliverySummaryConstants.verticalSpacing),
+            imageView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -DeliverySummaryConstants.verticalSpacing),
+            imageView.widthAnchor.constraint(equalToConstant: DeliverySummaryConstants.imageWidhtHeight),
+            imageView.heightAnchor.constraint(equalToConstant: DeliverySummaryConstants.imageWidhtHeight)
         ])
+        imageView.layer.cornerRadius = DeliverySummaryConstants.cornerRadius
     }
     
 }

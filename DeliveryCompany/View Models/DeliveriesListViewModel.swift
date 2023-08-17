@@ -36,12 +36,11 @@ final class DeliveriesListViewModel {
         Webservice.instance.fetchDeliveries(offset: offset, limit: pageSize) { (result: Result<[Delivery], NetworkError>) in
             switch result {
             case .success(let deliveries):
-                print(deliveries)
-                var nextDeliver = [Delivery]()
-                nextDeliver.append(contentsOf: deliveries)
-                nextDeliver.append(contentsOf: self.duplicateObjects(array: deliveries, n: 5))
-                
-                let mappedDeliveries = nextDeliver.map { delivery in
+//                var nextDeliver = [Delivery]()
+//                nextDeliver.append(contentsOf: deliveries)
+//                nextDeliver.append(contentsOf: self.duplicateObjects(array: deliveries, n: 5))
+//
+                let mappedDeliveries = deliveries.map { delivery in
                     DeliveryDataModel(delivery: delivery)}
                 self.isPaginationNeeded = mappedDeliveries.count >= self.pageSize
                 DispatchQueue.main.async {

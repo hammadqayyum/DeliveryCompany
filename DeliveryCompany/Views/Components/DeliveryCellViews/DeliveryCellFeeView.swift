@@ -1,5 +1,5 @@
 //
-//  RightViewDeliveryCell.swift
+//  DeliveryCellFeeView.swift
 //  DeliveryCompany
 //
 //  Created by Hammad Qayyum on 15/08/2023.
@@ -7,13 +7,13 @@
 
 import UIKit
 
-final class RightViewDeliveryCell: UIView {
+final class DeliveryCellFeeView: UIView {
     
     private let topRightImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = UIImage(systemName: "heart.fill")
-        imageView.tintColor = UIColor.red
+        imageView.tintColor = UIColor.white
         return imageView
     }()
     
@@ -45,12 +45,12 @@ final class RightViewDeliveryCell: UIView {
         topRightImageView.translatesAutoresizingMaskIntoConstraints = false
         bottomRightLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            topRightImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
-            topRightImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 20),
+            topRightImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -DeliveryCellRightConstants.horizontalSpacing),
+            topRightImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: DeliveryCellRightConstants.verticalSpacing),
             
             bottomRightLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            bottomRightLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
-            bottomRightLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -20),
+            bottomRightLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -DeliveryCellRightConstants.horizontalSpacing),
+            bottomRightLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -DeliveryCellRightConstants.verticalSpacing),
         ])
     }
     

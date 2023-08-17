@@ -37,26 +37,23 @@ final class DeliverySummaryMembersView: UIView {
     }
     
     private func setupUI() {
-        // Create labels
         //self.backgroundColor = UIColor.systemGray3
         self.setupCustomAppearance()
         let topLeftLabel = UILabel()
         topLeftLabel.setupLabelCustomAppearance()
-        topLeftLabel.text = "From"
+        topLeftLabel.text = DeliverySummaryConstants.from
         
         
         let bottomLeftLabel = UILabel()
         bottomLeftLabel.setupLabelCustomAppearance()
-        bottomLeftLabel.text = "To"
+        bottomLeftLabel.text = DeliverySummaryConstants.to
         
         
-        // Add labels to the view
         addSubview(topLeftLabel)
         addSubview(topRightLabel)
         addSubview(bottomLeftLabel)
         addSubview(bottomRightLabel)
         
-        // Apply auto layout constraints
         topLeftLabel.translatesAutoresizingMaskIntoConstraints = false
         topRightLabel.translatesAutoresizingMaskIntoConstraints = false
         bottomLeftLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -64,24 +61,24 @@ final class DeliverySummaryMembersView: UIView {
         
         NSLayoutConstraint.activate([
             // Top left label constraints
-            topLeftLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            topLeftLabel.topAnchor.constraint(equalTo: topAnchor, constant: 24),
-            topLeftLabel.bottomAnchor.constraint(equalTo: bottomLeftLabel.topAnchor, constant: -10),
+            topLeftLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: DeliverySummaryConstants.horizontalSpacing),
+            topLeftLabel.topAnchor.constraint(equalTo: topAnchor, constant: DeliverySummaryConstants.verticalSpacing),
+            topLeftLabel.bottomAnchor.constraint(equalTo: bottomLeftLabel.topAnchor, constant: -DeliverySummaryConstants.labelsVerticalSpacing),
             
             
             // Top right label constraints
-            topRightLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            topRightLabel.topAnchor.constraint(equalTo: topAnchor, constant: 24),
+            topRightLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -DeliverySummaryConstants.horizontalSpacing),
+            topRightLabel.topAnchor.constraint(equalTo: topAnchor, constant: DeliverySummaryConstants.verticalSpacing),
             
             
             // Bottom left label constraints
-            bottomLeftLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            bottomLeftLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -24),
+            bottomLeftLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: DeliverySummaryConstants.horizontalSpacing),
+            bottomLeftLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -DeliverySummaryConstants.verticalSpacing),
             
             
             // Bottom right label constraints
-            bottomRightLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            bottomRightLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -24),
+            bottomRightLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -DeliverySummaryConstants.horizontalSpacing),
+            bottomRightLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -DeliverySummaryConstants.verticalSpacing),
         ])
     }
 }
