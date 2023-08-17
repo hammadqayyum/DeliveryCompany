@@ -28,6 +28,7 @@
 		68CB82B12A8DFEEB00EAB2B8 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 68CB82B02A8DFEEB00EAB2B8 /* Realm */; };
 		68CB82B32A8DFEEB00EAB2B8 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 68CB82B22A8DFEEB00EAB2B8 /* RealmSwift */; };
 		68CB82B62A8E086700EAB2B8 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CB82B52A8E086700EAB2B8 /* Utils.swift */; };
+		68CB82B82A8E4D9000EAB2B8 /* UI+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CB82B72A8E4D9000EAB2B8 /* UI+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		68CB82AB2A8CF04500EAB2B8 /* DeliverySummaryFvtBtnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliverySummaryFvtBtnView.swift; sourceTree = "<group>"; };
 		68CB82AD2A8CFFB600EAB2B8 /* DeliveryDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryDataModel.swift; sourceTree = "<group>"; };
 		68CB82B52A8E086700EAB2B8 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		68CB82B72A8E4D9000EAB2B8 /* UI+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UI+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				68CB82B52A8E086700EAB2B8 /* Utils.swift */,
+				68CB82B72A8E4D9000EAB2B8 /* UI+Extensions.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 				68CB82AA2A8CE98300EAB2B8 /* DeliverySummaryFeeView.swift in Sources */,
 				681E4A302A8B87340093FCD1 /* SceneDelegate.swift in Sources */,
 				68CB82992A8BE43200EAB2B8 /* Delivery.swift in Sources */,
+				68CB82B82A8E4D9000EAB2B8 /* UI+Extensions.swift in Sources */,
 				68CB82AC2A8CF04500EAB2B8 /* DeliverySummaryFvtBtnView.swift in Sources */,
 				68CB82972A8BE3E800EAB2B8 /* DeliverySummaryViewController.swift in Sources */,
 				68CB829D2A8BEB8B00EAB2B8 /* DeliverySummaryMembersView.swift in Sources */,

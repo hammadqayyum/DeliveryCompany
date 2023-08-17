@@ -25,12 +25,13 @@ final class DeliveriesListViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(deliveriesFetched), name: .deliveriesFetched, object: nil)
         startLoading()
         DeliveriesListViewModel.instance.fetchDeliveries()
-        
     }
     
     private func setupUI() {
         title = "My Deliveries"
         view.addSubview(tableView)
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+
         // Add constraints to position and size the tableView
         tableView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -39,7 +40,7 @@ final class DeliveriesListViewController: UIViewController {
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
-        activityIndicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 44))
+        activityIndicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 60))
         activityIndicator.center = view.center
         view.addSubview(activityIndicator)
     }
@@ -65,12 +66,12 @@ final class DeliveriesListViewController: UIViewController {
 //MARK: -  TableView Data Source and Delegate
 extension DeliveriesListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return DeliveriesListViewModel.instance.deliveries.count
+        return DeliveriesListViewModel.instance.deliveriesCount()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DeliveryViewCell", for: indexPath) as! DeliveryViewCell
-        if DeliveriesListViewModel.instance.deliveries.count >= indexPath.row {
+        if DeliveriesListViewModel.instance.deliveriesCount() >= indexPath.row {
             let delivery = DeliveriesListViewModel.instance.deliveries[indexPath.row]
             cell.configCell(delivery: delivery)
         }
@@ -78,7 +79,7 @@ extension DeliveriesListViewController: UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if DeliveriesListViewModel.instance.deliveries.count >= indexPath.row {
+        if DeliveriesListViewModel.instance.deliveriesCount() >= indexPath.row {
             if let cell = tableView.cellForRow(at: indexPath) {
                 let deliveryCell = cell as? DeliveryViewCell
                 Utils.imageData = deliveryCell?.getImageData() ?? Data()

@@ -11,14 +11,14 @@ final class DeliverySummaryFeeView: UIView {
     
      private let leftLabel: UILabel = {
         let label = UILabel()
-         label.text = "Delivery Fee"
-        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Delivery Fee"
+        label.setupLabelCustomAppearance()
         return label
     }()
     
      private let feeLabel: UILabel = {
         let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
+        label.setupLabelCustomAppearance()
         return label
     }()
     
@@ -33,7 +33,7 @@ final class DeliverySummaryFeeView: UIView {
     }
     
     private func setupView() {
-        self.backgroundColor = UIColor.systemGray3
+        self.setupCustomAppearance()
         addSubview(leftLabel)
         addSubview(feeLabel)
         setupConstraints()

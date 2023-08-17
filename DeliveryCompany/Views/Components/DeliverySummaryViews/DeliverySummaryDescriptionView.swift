@@ -11,8 +11,7 @@ final class DeliverySummaryDescriptionView: UIView {
     
     private let label: UILabel = {
         let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 0
+        label.setupLabelCustomAppearance()
         return label
     }()
     
@@ -33,7 +32,7 @@ final class DeliverySummaryDescriptionView: UIView {
     }
     
     private func setupView() {
-        self.backgroundColor = UIColor.systemGray5
+        self.setupCustomAppearance()
         addSubview(label)
         addSubview(imageView)
         setupConstraints()

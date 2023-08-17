@@ -11,13 +11,13 @@ final class DeliverySummaryMembersView: UIView {
     
     private let topRightLabel: UILabel = {
         let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
+        label.setupLabelCustomAppearance()
         return label
     }()
     
     private let bottomRightLabel: UILabel = {
         let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
+        label.setupLabelCustomAppearance()
         return label
     }()
     
@@ -38,12 +38,15 @@ final class DeliverySummaryMembersView: UIView {
     
     private func setupUI() {
         // Create labels
-        self.backgroundColor = UIColor.systemGray3
+        //self.backgroundColor = UIColor.systemGray3
+        self.setupCustomAppearance()
         let topLeftLabel = UILabel()
+        topLeftLabel.setupLabelCustomAppearance()
         topLeftLabel.text = "From"
         
         
         let bottomLeftLabel = UILabel()
+        bottomLeftLabel.setupLabelCustomAppearance()
         bottomLeftLabel.text = "To"
         
         

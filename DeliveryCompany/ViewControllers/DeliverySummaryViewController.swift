@@ -24,17 +24,17 @@ final class DeliverySummaryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Delivery Details"
-        view.backgroundColor = .white
-        
-        favouriteButton.addTarget(self, action: #selector(favouriteButtonTapped), for: .touchUpInside)
-        
         setupViews()
         updateViewsConstraints()
+        favouriteButton.addTarget(self, action: #selector(favouriteButtonTapped), for: .touchUpInside)
         configureHelperViews()
     }
     
     private func setupViews() {
+        title = "Delivery Details"
+        view.backgroundColor = .white
+        self.navigationController?.navigationBar.tintColor = UIColor.white
+
         favouriteButton.translatesAutoresizingMaskIntoConstraints = false
         deliverySummaryMembersView.translatesAutoresizingMaskIntoConstraints = false
         deliverySummaryDescriptionView.translatesAutoresizingMaskIntoConstraints = false
@@ -66,9 +66,9 @@ final class DeliverySummaryViewController: UIViewController {
         ])
         
         NSLayoutConstraint.activate([
-            favouriteButton.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 5),
-            favouriteButton.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -5),
-            favouriteButton.bottomAnchor.constraint(equalTo: view.bottomAnchor,constant: -20),
+            favouriteButton.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 8),
+            favouriteButton.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -8),
+            favouriteButton.bottomAnchor.constraint(equalTo: view.bottomAnchor,constant: -30),
         ])
     }
     

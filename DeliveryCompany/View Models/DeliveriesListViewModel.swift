@@ -69,4 +69,8 @@ final class DeliveriesListViewModel {
             self.servicesCount -= 1
         }
     }
+    
+    func deliveriesCount() -> Int {
+        self.deliveries.count
+    }
 }

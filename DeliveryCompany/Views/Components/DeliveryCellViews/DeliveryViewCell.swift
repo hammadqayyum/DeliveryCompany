@@ -37,8 +37,8 @@ final class DeliveryViewCell: UITableViewCell {
     }
     
     private func setupConstraints(for stackView: UIStackView) {
-        stackView.layer.borderColor = UIColor.black.cgColor
-        stackView.layer.borderWidth = 1
+        stackView.setupCustomAppearance()
+       // stackView.layer.backgroundColor = UIColor.gray.cgColor
         stackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 6).isActive = true
         stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12).isActive = true
         stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12).isActive = true

@@ -13,11 +13,13 @@ final class RightViewDeliveryCell: UIView {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = UIImage(systemName: "heart.fill")
+        imageView.tintColor = UIColor.red
         return imageView
     }()
     
     private let bottomRightLabel: UILabel = {
         let label = UILabel()
+        label.setupLabelCustomAppearance()
         return label
     }()
     
