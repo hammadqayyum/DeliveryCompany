@@ -12,19 +12,43 @@ final class DeliveriesListViewModel {
     static let instance = DeliveriesListViewModel()
     var deliveries = [DeliveryDataModel]()
     let realm = try! Realm()
+    private let pageSize = 20
+    var isPaginationNeeded = true
+    var servicesCount = 0
+    
+    
+    func duplicateObjects(array: [Delivery], n: Int) -> [Delivery] {
+      var newArray = [Delivery]()
+      for _ in 0..<n {
+        for delivery in array {
+          newArray.append(delivery)
+        }
+      }
+      return newArray
+    }
     
     func fetchDeliveries(readFromLocalStorage: Bool = false) {
-        Webservice.instance.fetchDeliveries(offset: 0, limit: 20) { (result: Result<[Delivery], NetworkError>) in
+        if servicesCount > 0 {
+            return
+        }
+        servicesCount += 1
+        let offset = deliveries.count
+        Webservice.instance.fetchDeliveries(offset: offset, limit: pageSize) { (result: Result<[Delivery], NetworkError>) in
             switch result {
             case .success(let deliveries):
                 // Process the fetched deliveries
                 print(deliveries)
-                self.deliveries = deliveries.map{ delivery in
-                    DeliveryDataModel(delivery: delivery)}
+                var nextDeliver = [Delivery]()
+                nextDeliver.append(contentsOf: deliveries)
+                nextDeliver.append(contentsOf: self.duplicateObjects(array: deliveries, n: 5))
                 
+                let mappedDeliveries = nextDeliver.map { delivery in
+                    DeliveryDataModel(delivery: delivery)}
+                self.isPaginationNeeded = mappedDeliveries.count >= self.pageSize
                 DispatchQueue.main.async {
                     do {
                         try self.realm.write {
+                            self.deliveries.append(contentsOf: mappedDeliveries)
                             self.realm.add(self.deliveries)
                             print("yes added here")
                         }
@@ -40,8 +64,10 @@ final class DeliveriesListViewModel {
                     for delivery in deliveries {
                         self.deliveries.append(delivery)
                     }
+                    NotificationCenter.default.post(name: .deliveriesFetched, object: nil)
                 }
             }
+            self.servicesCount -= 1
         }
     }
 }

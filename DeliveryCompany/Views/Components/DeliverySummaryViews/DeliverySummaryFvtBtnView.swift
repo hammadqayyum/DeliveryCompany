@@ -35,9 +35,10 @@ class DeliverySummaryFvtBtnView: UIButton {
         
         label.topAnchor.constraint(equalTo: topAnchor, constant: 15).isActive = true
         label.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -15).isActive = true
-        imageBtnView.widthAnchor.constraint(equalTo: heightAnchor, multiplier: 1).isActive = true
         imageBtnView.centerYAnchor.constraint(equalTo: label.centerYAnchor).isActive = true
-        imageBtnView.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        imageBtnView.heightAnchor.constraint(equalToConstant: 25).isActive = true
+        imageBtnView.widthAnchor.constraint(equalToConstant: 25).isActive = true
+
         
         setLabelText("Add to Favourites")
         setImage(isFav: false)

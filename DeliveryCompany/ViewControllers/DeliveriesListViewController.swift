@@ -8,8 +8,9 @@
 import UIKit
 
 final class DeliveriesListViewController: UIViewController {
-
-   lazy var tableView: UITableView = {
+    
+    private var activityIndicator: UIActivityIndicatorView!
+    lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.rowHeight = 100
         tableView.separatorStyle = .none
@@ -21,25 +22,41 @@ final class DeliveriesListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "My Deliveries"
-        view.addSubview(tableView)
-        // Add constraints to position and size the tableView
-            tableView.translatesAutoresizingMaskIntoConstraints = false
-            NSLayoutConstraint.activate([
-                tableView.topAnchor.constraint(equalTo: view.topAnchor),
-                tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-                tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-                tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-            ])
-        tableView.reloadData()
+        setupUI()
         NotificationCenter.default.addObserver(self, selector: #selector(deliveriesFetched), name: .deliveriesFetched, object: nil)
+        startLoading()
         DeliveriesListViewModel.instance.fetchDeliveries()
         
     }
     
+    private func setupUI() {
+        title = "My Deliveries"
+        view.addSubview(tableView)
+        // Add constraints to position and size the tableView
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: view.topAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+        tableView.reloadData()
+        activityIndicator = UIActivityIndicatorView(style: .large)
+        activityIndicator.center = view.center
+        view.addSubview(activityIndicator)
+    }
+    
+    func startLoading() {
+        activityIndicator.startAnimating()
+    }
+    
+    func stopLoading() {
+        activityIndicator.stopAnimating()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
+        
         if let selectedIndexPath = tableView.indexPathForSelectedRow {
             tableView.deselectRow(at: selectedIndexPath, animated: animated)
             tableView.reloadRows(at: [selectedIndexPath], with: .automatic)
@@ -65,18 +82,28 @@ extension DeliveriesListViewController: UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if DeliveriesListViewModel.instance.deliveries.count >= indexPath.row {
             if let cell = tableView.cellForRow(at: indexPath) {
-                let deliveryCell = cell as? DeliveryViewCell 
+                let deliveryCell = cell as? DeliveryViewCell
                 Utils.imageData = deliveryCell?.getImageData() ?? Data()
-                    }
+            }
             let delivery = DeliveriesListViewModel.instance.deliveries[indexPath.row]
             let vc = DeliverySummaryViewController(delivery: delivery)
             navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.contentSize.height > 0 && scrollView.contentOffset.y > scrollView.contentSize.height - scrollView.bounds.height {
+            if  DeliveriesListViewModel.instance.isPaginationNeeded && DeliveriesListViewModel.instance.servicesCount == 0 {
+                startLoading()
+                DeliveriesListViewModel.instance.fetchDeliveries(readFromLocalStorage: true)
+            }
         }
     }
 }
 
 extension DeliveriesListViewController {
     @objc func deliveriesFetched() {
+        stopLoading()
         tableView.reloadData()
     }
 }
