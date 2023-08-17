@@ -11,9 +11,8 @@ final class DeliveryViewCell: UITableViewCell {
     private var delivery: DeliveryDataModel!
     let labelsHeight = 20
     let midViewDeliveryCell = MidViewDeliveryCell()
-    let rightContainer = RightViewDeliveryCell() // Container view for equal-width labels
-
-    // Declare your UI elements
+    let rightContainer = RightViewDeliveryCell()
+    
     let leftImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -21,27 +20,15 @@ final class DeliveryViewCell: UITableViewCell {
         return imageView
     }()
     
-    // Constructor
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-
-        // Create horizontal stack view for left side
+        
         let leftStackView = createStack(views: [leftImageView], axis: .vertical)
-        
-        // Create vertical stack view for upper and lower labels
-        
         let labelsStackView = createStack(views: [midViewDeliveryCell], alignment: .leading, axis: .vertical)
-        
-        // Create vertical stack view for upper and lower labels
         let rightStackView = createStack(views: [rightContainer], alignment: .trailing, axis: .vertical)
-
-        // Create vertical stack view for the whole cell
         let mainStackView = createStack(views: [leftStackView, labelsStackView, rightStackView], axis: .horizontal)
         mainStackView.spacing = 5
-        
-        // Add the main stack view to the cell's content view
         contentView.addSubview(mainStackView)
-        
         setupConstraints(for: mainStackView)
     }
     
@@ -58,23 +45,18 @@ final class DeliveryViewCell: UITableViewCell {
         stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -6).isActive = true
         
         leftImageView.widthAnchor.constraint(equalTo: leftImageView.heightAnchor).isActive = true
-        
     }
     
     private func setandSaveImage(delivery: DeliveryDataModel) {
         if let url = URL(string: delivery.goodsPicture) {
-           // leftImageView.sd_setImage(with: url, placeholderImage: UIImage(systemName: "person.circle.fill"))
-            
-            
+            // leftImageView.sd_setImage(with: url, placeholderImage: UIImage(systemName: "person.circle.fill"))
             leftImageView.sd_setImage(with: url, placeholderImage: UIImage(systemName: "person.circle.fill"), completed: { (image, error, _, _) in
-                    if let error = error {
-                        print(error)
-                    } else if let image = image {
-                        self.delivery.imageData = image.pngData() ?? Data()
-                    }
-                })
-            
-            
+                if let error = error {
+                    print(error)
+                } else if let image = image {
+                    Utils.imageData = image.pngData() ?? Data()
+                }
+            })
         }
     }
     

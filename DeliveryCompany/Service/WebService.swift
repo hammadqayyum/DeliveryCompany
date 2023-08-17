@@ -31,7 +31,6 @@ final class Webservice {
         }
         
         URLSession.shared.dataTask(with: url) { data, _, error in
-            
             guard let data = data, error == nil else {
                 completion(.failure(.invalidData))
                 return

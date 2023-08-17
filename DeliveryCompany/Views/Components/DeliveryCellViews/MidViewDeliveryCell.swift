@@ -9,16 +9,15 @@ import UIKit
 
 final class MidViewDeliveryCell: UIView {
     
-    let upperLabel: UILabel = {
+    private let upperLabel: UILabel = {
         let label = UILabel()
         return label
     }()
     
-    let lowerLabel: UILabel = {
+    private let lowerLabel: UILabel = {
         let label = UILabel()
         return label
     }()
-    
     
     override init(frame: CGRect) {
         super.init(frame: frame)

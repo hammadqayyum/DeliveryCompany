@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 final class DeliverySummaryViewController: UIViewController {
     
@@ -14,7 +15,7 @@ final class DeliverySummaryViewController: UIViewController {
     private let deliverySummaryDescriptionView = DeliverySummaryDescriptionView()
     private let deliverySummaryFeeView = DeliverySummaryFeeView()
     private let favouriteButton = DeliverySummaryFvtBtnView()
-    
+    let realm = try! Realm()
     
     convenience init(delivery: DeliveryDataModel) {
         self.init()
@@ -30,7 +31,6 @@ final class DeliverySummaryViewController: UIViewController {
         
         setupViews()
         updateViewsConstraints()
-        
         configureHelperViews()
     }
     
@@ -80,7 +80,16 @@ final class DeliverySummaryViewController: UIViewController {
     }
     
     @objc func favouriteButtonTapped() {
-        self.delivery.isFavourite = !self.delivery.isFavourite
+        
+        do {
+            try realm.write {
+                self.delivery.isFavourite = !self.delivery.isFavourite
+                realm.add(self.delivery, update: .modified)
+            }
+        } catch let error as NSError {
+            print("Error updating delivery object: \(error.localizedDescription)")
+        }
+        //        self.delivery.isFavourite = !self.delivery.isFavourite
         favouriteButton.setImage(isFav: self.delivery.isFavourite)
     }
 }

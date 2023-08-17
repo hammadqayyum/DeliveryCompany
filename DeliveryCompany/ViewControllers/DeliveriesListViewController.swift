@@ -71,15 +71,10 @@ extension DeliveriesListViewController: UITableViewDelegate, UITableViewDataSour
     }
 }
 
-
 extension DeliveriesListViewController {
     @objc func deliveriesFetched() {
         tableView.reloadData()
     }
 }
 
-
-extension Notification.Name {
-    static let deliveriesFetched = Notification.Name("deliveriesFetched")
-}
 

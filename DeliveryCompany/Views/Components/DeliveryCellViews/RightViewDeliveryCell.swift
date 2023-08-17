@@ -9,14 +9,14 @@ import UIKit
 
 final class RightViewDeliveryCell: UIView {
     
-    let topRightImageView: UIImageView = {
+    private let topRightImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = UIImage(systemName: "heart.fill")
         return imageView
     }()
     
-    let bottomRightLabel: UILabel = {
+    private let bottomRightLabel: UILabel = {
         let label = UILabel()
         return label
     }()
@@ -53,8 +53,8 @@ final class RightViewDeliveryCell: UIView {
     }
     
     func updateView(delivery: DeliveryDataModel) {
-            bottomRightLabel.text = delivery.totalAmount
-            topRightImageView.isHidden = !delivery.isFavourite
+        bottomRightLabel.text = Utils.calculateTotalCharge(delivery: delivery)
+        topRightImageView.isHidden = !delivery.isFavourite
     }
 }
 

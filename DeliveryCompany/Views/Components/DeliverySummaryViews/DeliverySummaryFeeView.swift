@@ -8,7 +8,6 @@
 import UIKit
 
 final class DeliverySummaryFeeView: UIView {
-
     
      private let leftLabel: UILabel = {
         let label = UILabel()
@@ -41,7 +40,7 @@ final class DeliverySummaryFeeView: UIView {
     }
     
     func setFee(delivery: DeliveryDataModel) {
-        feeLabel.text = delivery.totalAmount
+        feeLabel.text = Utils.calculateTotalCharge(delivery: delivery)
     }
     
     private func setupConstraints() {

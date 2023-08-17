@@ -25,6 +25,9 @@
 		68CB82AA2A8CE98300EAB2B8 /* DeliverySummaryFeeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CB82A92A8CE98300EAB2B8 /* DeliverySummaryFeeView.swift */; };
 		68CB82AC2A8CF04500EAB2B8 /* DeliverySummaryFvtBtnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CB82AB2A8CF04500EAB2B8 /* DeliverySummaryFvtBtnView.swift */; };
 		68CB82AE2A8CFFB600EAB2B8 /* DeliveryDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CB82AD2A8CFFB600EAB2B8 /* DeliveryDataModel.swift */; };
+		68CB82B12A8DFEEB00EAB2B8 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 68CB82B02A8DFEEB00EAB2B8 /* Realm */; };
+		68CB82B32A8DFEEB00EAB2B8 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 68CB82B22A8DFEEB00EAB2B8 /* RealmSwift */; };
+		68CB82B62A8E086700EAB2B8 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CB82B52A8E086700EAB2B8 /* Utils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +50,7 @@
 		68CB82A92A8CE98300EAB2B8 /* DeliverySummaryFeeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliverySummaryFeeView.swift; sourceTree = "<group>"; };
 		68CB82AB2A8CF04500EAB2B8 /* DeliverySummaryFvtBtnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliverySummaryFvtBtnView.swift; sourceTree = "<group>"; };
 		68CB82AD2A8CFFB600EAB2B8 /* DeliveryDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryDataModel.swift; sourceTree = "<group>"; };
+		68CB82B52A8E086700EAB2B8 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +58,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68CB82B32A8DFEEB00EAB2B8 /* RealmSwift in Frameworks */,
+				68CB82B12A8DFEEB00EAB2B8 /* Realm in Frameworks */,
 				68CB82A62A8CD6FD00EAB2B8 /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -80,6 +86,7 @@
 		681E4A2C2A8B87340093FCD1 /* DeliveryCompany */ = {
 			isa = PBXGroup;
 			children = (
+				68CB82B42A8E07A600EAB2B8 /* Utils */,
 				68CB828D2A8BAA9200EAB2B8 /* Model */,
 				68CB828E2A8BAAA600EAB2B8 /* Views */,
 				68CB82A12A8CAB3100EAB2B8 /* View Models */,
@@ -116,7 +123,6 @@
 			isa = PBXGroup;
 			children = (
 				68CB82912A8BD72C00EAB2B8 /* Components */,
-				68CB828F2A8BAAD800EAB2B8 /* DeliveryViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -133,6 +139,7 @@
 		68CB829A2A8BEAEC00EAB2B8 /* DeliveryCellViews */ = {
 			isa = PBXGroup;
 			children = (
+				68CB828F2A8BAAD800EAB2B8 /* DeliveryViewCell.swift */,
 				68CB82942A8BD99A00EAB2B8 /* RightViewDeliveryCell.swift */,
 				68CB82922A8BD76000EAB2B8 /* MidViewDeliveryCell.swift */,
 			);
@@ -166,6 +173,14 @@
 			path = "View Models";
 			sourceTree = "<group>";
 		};
+		68CB82B42A8E07A600EAB2B8 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				68CB82B52A8E086700EAB2B8 /* Utils.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -184,6 +199,8 @@
 			name = DeliveryCompany;
 			packageProductDependencies = (
 				68CB82A52A8CD6FD00EAB2B8 /* SDWebImage */,
+				68CB82B02A8DFEEB00EAB2B8 /* Realm */,
+				68CB82B22A8DFEEB00EAB2B8 /* RealmSwift */,
 			);
 			productName = DeliveryCompany;
 			productReference = 681E4A2A2A8B87340093FCD1 /* DeliveryCompany.app */;
@@ -215,6 +232,7 @@
 			mainGroup = 681E4A212A8B87340093FCD1;
 			packageReferences = (
 				68CB82A42A8CD6FD00EAB2B8 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				68CB82AF2A8DFEEB00EAB2B8 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = 681E4A2B2A8B87340093FCD1 /* Products */;
 			projectDirPath = "";
@@ -244,6 +262,7 @@
 			files = (
 				68CB82902A8BAAD800EAB2B8 /* DeliveryViewCell.swift in Sources */,
 				68CB82AE2A8CFFB600EAB2B8 /* DeliveryDataModel.swift in Sources */,
+				68CB82B62A8E086700EAB2B8 /* Utils.swift in Sources */,
 				68CB82952A8BD99A00EAB2B8 /* RightViewDeliveryCell.swift in Sources */,
 				681E4A322A8B87340093FCD1 /* DeliveriesListViewController.swift in Sources */,
 				68CB82A32A8CAC3500EAB2B8 /* DeliveriesListViewModel.swift in Sources */,
@@ -478,6 +497,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		68CB82AF2A8DFEEB00EAB2B8 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -485,6 +512,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 68CB82A42A8CD6FD00EAB2B8 /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImage;
+		};
+		68CB82B02A8DFEEB00EAB2B8 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 68CB82AF2A8DFEEB00EAB2B8 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		68CB82B22A8DFEEB00EAB2B8 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 68CB82AF2A8DFEEB00EAB2B8 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

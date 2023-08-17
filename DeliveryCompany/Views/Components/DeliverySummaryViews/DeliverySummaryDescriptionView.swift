@@ -41,7 +41,7 @@ final class DeliverySummaryDescriptionView: UIView {
     
     func setDescription(delivery: DeliveryDataModel) {
         label.text = delivery.remarks
-        let image  = UIImage(data: delivery.imageData)
+        let image  = UIImage(data: Utils.imageData)
         if let image = image {
             imageView.image = image
         } else {
@@ -55,7 +55,7 @@ final class DeliverySummaryDescriptionView: UIView {
             label.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
             label.topAnchor.constraint(equalTo: self.topAnchor, constant: 16),
             label.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
-
+            
             
             // Constraints for imageView
             imageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
