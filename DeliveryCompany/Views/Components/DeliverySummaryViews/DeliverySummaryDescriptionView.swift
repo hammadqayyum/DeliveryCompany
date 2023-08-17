@@ -40,7 +40,7 @@ final class DeliverySummaryDescriptionView: UIView {
     }
     
     func setDescription(delivery: DeliveryDataModel) {
-        label.text = delivery.remarks
+        label.text = delivery.deliveryRemarks()
         let image  = UIImage(data: Utils.imageData)
         if let image = image {
             imageView.image = image

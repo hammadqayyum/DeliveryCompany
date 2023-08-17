@@ -12,8 +12,8 @@ class Utils {
     static var imageData: Data = Data() 
     
     static func calculateTotalCharge(delivery: DeliveryDataModel) -> String {
-        if let deliveryFee = Double(delivery.deliveryFee.replacingOccurrences(of: "$", with: "")) ,
-           let surchargeFee = Double(delivery.surcharge.replacingOccurrences(of: "$", with: "")) {
+        if let deliveryFee = Double(delivery.deliveryFeeAmount().replacingOccurrences(of: "$", with: "")) ,
+           let surchargeFee = Double(delivery.surchargeFee().replacingOccurrences(of: "$", with: "")) {
             let totalCharge = deliveryFee + surchargeFee
             let formattedTotalAmount = String(format: "%.2f", totalCharge)
             let totalAmount = "$ \(formattedTotalAmount)"

@@ -48,22 +48,26 @@ final class DeliveryViewCell: UITableViewCell {
     }
     
     private func setandSaveImage(delivery: DeliveryDataModel) {
-        if let url = URL(string: delivery.goodsPicture) {
-            // leftImageView.sd_setImage(with: url, placeholderImage: UIImage(systemName: "person.circle.fill"))
-            leftImageView.sd_setImage(with: url, placeholderImage: UIImage(systemName: "person.circle.fill"), completed: { (image, error, _, _) in
-                if let error = error {
-                    print(error)
-                } else if let image = image {
-                    Utils.imageData = image.pngData() ?? Data()
-                }
-            })
+        if let url = URL(string: delivery.goodsPictureUrl()) {
+             leftImageView.sd_setImage(with: url, placeholderImage: UIImage(systemName: "person.circle.fill"))
+//            leftImageView.sd_setImage(with: url, placeholderImage: UIImage(systemName: "person.circle.fill"), completed: { (image, error, _, _) in
+//                if let error = error {
+//                    print(error)
+//                } else if let image = image {
+////                    Utils.imageData = image.pngData() ?? Data()
+//                }
+//            })
         }
+    }
+    
+    func getImageData() -> Data {
+        return self.leftImageView.image?.jpegData(compressionQuality: 0.2) ?? Data()
     }
     
     func configCell(delivery: DeliveryDataModel) {
         self.delivery = delivery
         setandSaveImage(delivery: self.delivery)
-        midViewDeliveryCell.updateLabels(from: self.delivery.fromSender, to: self.delivery.toReciever)
+        midViewDeliveryCell.updateLabels(from: self.delivery.senderName(), to: self.delivery.recieverName())
         rightContainer.updateView(delivery: self.delivery)
     }
     

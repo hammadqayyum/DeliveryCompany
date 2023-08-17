@@ -76,21 +76,21 @@ final class DeliverySummaryViewController: UIViewController {
         deliverySummaryMembersView.setMembers(delivery: self.delivery)
         deliverySummaryDescriptionView.setDescription(delivery: self.delivery)
         deliverySummaryFeeView.setFee(delivery: self.delivery)
-        favouriteButton.setImage(isFav: self.delivery.isFavourite)
+        favouriteButton.setImage(isFav: self.delivery.favouriteStatus())
     }
     
     @objc func favouriteButtonTapped() {
         
         do {
             try realm.write {
-                self.delivery.isFavourite = !self.delivery.isFavourite
+                self.delivery.updateIsFavourite()
                 realm.add(self.delivery, update: .modified)
             }
         } catch let error as NSError {
             print("Error updating delivery object: \(error.localizedDescription)")
         }
         //        self.delivery.isFavourite = !self.delivery.isFavourite
-        favouriteButton.setImage(isFav: self.delivery.isFavourite)
+        favouriteButton.setImage(isFav: self.delivery.favouriteStatus())
     }
 }
 

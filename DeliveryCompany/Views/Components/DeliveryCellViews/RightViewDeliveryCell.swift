@@ -54,7 +54,7 @@ final class RightViewDeliveryCell: UIView {
     
     func updateView(delivery: DeliveryDataModel) {
         bottomRightLabel.text = Utils.calculateTotalCharge(delivery: delivery)
-        topRightImageView.isHidden = !delivery.isFavourite
+        topRightImageView.isHidden = !delivery.favouriteStatus()
     }
 }
 

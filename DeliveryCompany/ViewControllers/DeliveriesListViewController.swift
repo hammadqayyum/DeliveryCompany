@@ -64,6 +64,10 @@ extension DeliveriesListViewController: UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if DeliveriesListViewModel.instance.deliveries.count >= indexPath.row {
+            if let cell = tableView.cellForRow(at: indexPath) {
+                let deliveryCell = cell as? DeliveryViewCell 
+                Utils.imageData = deliveryCell?.getImageData() ?? Data()
+                    }
             let delivery = DeliveriesListViewModel.instance.deliveries[indexPath.row]
             let vc = DeliverySummaryViewController(delivery: delivery)
             navigationController?.pushViewController(vc, animated: true)

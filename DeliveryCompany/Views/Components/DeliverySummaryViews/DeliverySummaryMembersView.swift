@@ -32,8 +32,8 @@ final class DeliverySummaryMembersView: UIView {
     }
     
     func setMembers(delivery: DeliveryDataModel) {
-        topRightLabel.text = delivery.fromSender
-        bottomRightLabel.text = delivery.toReciever
+        topRightLabel.text = delivery.senderName()
+        bottomRightLabel.text = delivery.recieverName()
     }
     
     private func setupUI() {
