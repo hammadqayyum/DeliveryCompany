@@ -23,6 +23,9 @@ final class DeliveryCellFeeView: UIView {
         return label
     }()
     
+    var isTopRightImageViewHidden: Bool {
+        return topRightImageView.isHidden
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
