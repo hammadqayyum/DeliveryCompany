@@ -24,3 +24,4 @@ class Utils {
 extension Notification.Name {
     static let deliveriesFetched = Notification.Name("deliveriesFetched")
 }
+
