@@ -52,7 +52,6 @@ final class DeliveriesListViewModel {
                         try self.realm.write {
                             self.deliveries.append(contentsOf: mappedDeliveries)
                             self.realm.add(self.deliveries)
-                            print("yes added here")
                         }
                     } catch let error as NSError {
                         print("Error saving deliveries: \(error.localizedDescription)")

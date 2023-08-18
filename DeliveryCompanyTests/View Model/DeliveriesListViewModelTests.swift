@@ -125,9 +125,7 @@ final class DeliveriesListViewModelTests: XCTestCase {
         // Then
         // Wait for the expectation here
         wait(for: [expectation], timeout: 5.0)
-        
-         
-        
+
         // Then
         XCTAssertFalse(sut.isPaginationNeeded, "isPaginationNeeded should be false when deliveries are less than page size")
         NotificationCenter.default.removeObserver(observer)

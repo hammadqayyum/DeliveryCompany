@@ -18,6 +18,10 @@ struct PlaceHolderImage {
     static let placeHolderImage: String = "rectangle"
 }
 
+struct DeliveryTableView {
+    static let cellIdentifier: String = "DeliveryViewCell"
+}
+
 struct StringsConstant {
     static let from: String = "From"
     static let to: String = "To"
@@ -25,13 +29,23 @@ struct StringsConstant {
     static let url: String = "https://6285f87796bccbf32d6c0e6a.mockapi.io/deliveries"
     static let offset: String = "offset"
     static let limit: String = "limit"
+    static let listTitle: String = "My Deliveries"
+    static let summaryTitle: String = "Delivery Details"
+    
 }
 
+struct DeliverySummaryMainView {
+    static let verticalSpacing: CGFloat = 25
+    static let horizontalSpacing: CGFloat = 12
+    static let favBtnverticalSpacing: CGFloat = 30
+    static let favBtnHorizontalSpacing: CGFloat = 8
+
+
+}
 
 struct DeliveryCellRightConstants {
     static let verticalSpacing: CGFloat = 20
     static let horizontalSpacing: CGFloat = 10
-    
 }
 
 struct DeliverySummaryConstants {

@@ -41,15 +41,25 @@ final class DeliverySummaryDescriptionView: UIView {
         setupConstraints()
     }
     
+//    func setDescription(delivery: DeliveryDataModel) {
+//        label.text = delivery.deliveryRemarks()
+//        let image  = UIImage(data: Utils.imageData)
+//        if let image = image {
+//            imageView.image = image
+//        } else {
+//            imageView.image = UIImage(systemName: PlaceHolderImage.placeHolderImage)
+//        }
+//    }
+//
+    
     func setDescription(delivery: DeliveryDataModel) {
         label.text = delivery.deliveryRemarks()
-        let image  = UIImage(data: Utils.imageData)
-        if let image = image {
-            imageView.image = image
-        } else {
-            imageView.image = UIImage(systemName: PlaceHolderImage.placeHolderImage)
+        if let url = URL(string: delivery.goodsPictureUrl()) {
+            imageView.sd_setImage(with: url, placeholderImage: UIImage(systemName: PlaceHolderImage.placeHolderImage))
         }
+
     }
+
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([

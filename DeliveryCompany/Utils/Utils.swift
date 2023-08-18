@@ -9,8 +9,6 @@ import Foundation
 
 class Utils {
     
-    static var imageData: Data = Data() 
-    
     static func calculateTotalCharge(delivery: DeliveryDataModel) -> String {
         if let deliveryFee = Double(delivery.deliveryFeeAmount().replacingOccurrences(of: "$", with: "")) ,
            let surchargeFee = Double(delivery.surchargeFee().replacingOccurrences(of: "$", with: "")) {
@@ -22,7 +20,6 @@ class Utils {
         return ""
     }
 }
-
 
 extension Notification.Name {
     static let deliveriesFetched = Notification.Name("deliveriesFetched")

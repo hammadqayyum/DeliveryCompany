@@ -73,10 +73,7 @@ final class DeliveryViewCell: UITableViewCell {
             leftImageView.sd_setImage(with: url, placeholderImage: UIImage(systemName: PlaceHolderImage.placeHolderImage))
         }
     }
-    
-    func getImageData() -> Data {
-        return self.leftImageView.image?.pngData() ?? Data()
-    }
+
     
     func configCell(delivery: DeliveryDataModel) {
         self.delivery = delivery

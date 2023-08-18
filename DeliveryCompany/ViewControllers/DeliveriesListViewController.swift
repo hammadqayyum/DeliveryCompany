@@ -16,7 +16,7 @@ final class DeliveriesListViewController: UIViewController {
         tableView.separatorStyle = .none
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(DeliveryViewCell.classForCoder(), forCellReuseIdentifier: "DeliveryViewCell")
+        tableView.register(DeliveryViewCell.classForCoder(), forCellReuseIdentifier: DeliveryTableView.cellIdentifier)
         return tableView
     }()
     
@@ -30,7 +30,7 @@ final class DeliveriesListViewController: UIViewController {
     }
     
     private func setupUI() {
-        title = "My Deliveries"
+        title = StringsConstant.listTitle
         view.addSubview(tableView)
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
 
@@ -47,11 +47,11 @@ final class DeliveriesListViewController: UIViewController {
         view.addSubview(activityIndicator)
     }
     
-    func startLoading() {
+    private func startLoading() {
         activityIndicator.startAnimating()
     }
     
-    func stopLoading() {
+    private func stopLoading() {
         activityIndicator.stopAnimating()
     }
     
@@ -72,7 +72,7 @@ extension DeliveriesListViewController: UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "DeliveryViewCell", for: indexPath) as! DeliveryViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: DeliveryTableView.cellIdentifier, for: indexPath) as! DeliveryViewCell
         if deliveriesViewModel.deliveriesCount() >= indexPath.row {
             let delivery = deliveriesViewModel.deliveries[indexPath.row]
             cell.configCell(delivery: delivery)
@@ -82,10 +82,6 @@ extension DeliveriesListViewController: UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if deliveriesViewModel.deliveriesCount() >= indexPath.row {
-            if let cell = tableView.cellForRow(at: indexPath) {
-                let deliveryCell = cell as? DeliveryViewCell
-                Utils.imageData = deliveryCell?.getImageData() ?? Data()
-            }
             let delivery = deliveriesViewModel.deliveries[indexPath.row]
             let vc = DeliverySummaryViewController(delivery: delivery)
             navigationController?.pushViewController(vc, animated: true)

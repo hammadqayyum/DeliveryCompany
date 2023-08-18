@@ -31,7 +31,7 @@ final class DeliverySummaryViewController: UIViewController {
     }
     
     private func setupViews() {
-        title = "Delivery Details"
+        title = StringsConstant.summaryTitle
         view.backgroundColor = .white
         self.navigationController?.navigationBar.tintColor = UIColor.white
 
@@ -48,27 +48,27 @@ final class DeliverySummaryViewController: UIViewController {
     
     private func updateViewsConstraints() {
         NSLayoutConstraint.activate([
-            deliverySummaryMembersView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 25),
-            deliverySummaryMembersView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 12),
-            deliverySummaryMembersView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -12),
+            deliverySummaryMembersView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: DeliverySummaryMainView.verticalSpacing),
+            deliverySummaryMembersView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: DeliverySummaryMainView.horizontalSpacing),
+            deliverySummaryMembersView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -DeliverySummaryMainView.horizontalSpacing),
         ])
         // deliverySummaryMembersView.heightAnchor.constraint(equalToConstant: 100),
         NSLayoutConstraint.activate([
-            deliverySummaryDescriptionView.leadingAnchor.constraint(equalTo: view.leadingAnchor , constant: 12),
-            deliverySummaryDescriptionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -12),
-            deliverySummaryDescriptionView.topAnchor.constraint(equalTo: deliverySummaryMembersView.bottomAnchor, constant: 25),
+            deliverySummaryDescriptionView.leadingAnchor.constraint(equalTo: view.leadingAnchor , constant: DeliverySummaryMainView.horizontalSpacing),
+            deliverySummaryDescriptionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -DeliverySummaryMainView.horizontalSpacing),
+            deliverySummaryDescriptionView.topAnchor.constraint(equalTo: deliverySummaryMembersView.bottomAnchor, constant: DeliverySummaryMainView.verticalSpacing),
         ])
         
         NSLayoutConstraint.activate([
-            deliverySummaryFeeView.leadingAnchor.constraint(equalTo: view.leadingAnchor , constant: 12),
-            deliverySummaryFeeView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -12),
-            deliverySummaryFeeView.topAnchor.constraint(equalTo: deliverySummaryDescriptionView.bottomAnchor, constant: 25),
+            deliverySummaryFeeView.leadingAnchor.constraint(equalTo: view.leadingAnchor , constant: DeliverySummaryMainView.horizontalSpacing),
+            deliverySummaryFeeView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -DeliverySummaryMainView.horizontalSpacing),
+            deliverySummaryFeeView.topAnchor.constraint(equalTo: deliverySummaryDescriptionView.bottomAnchor, constant: DeliverySummaryMainView.verticalSpacing),
         ])
         
         NSLayoutConstraint.activate([
-            favouriteButton.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 8),
-            favouriteButton.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -8),
-            favouriteButton.bottomAnchor.constraint(equalTo: view.bottomAnchor,constant: -30),
+            favouriteButton.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: DeliverySummaryMainView.favBtnHorizontalSpacing),
+            favouriteButton.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -DeliverySummaryMainView.favBtnHorizontalSpacing),
+            favouriteButton.bottomAnchor.constraint(equalTo: view.bottomAnchor,constant: -DeliverySummaryMainView.favBtnverticalSpacing),
         ])
     }
     
