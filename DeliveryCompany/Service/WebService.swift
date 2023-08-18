@@ -30,7 +30,10 @@ final class Webservice {
             return
         }
         
-        URLSession.shared.dataTask(with: url) { data, _, error in
+        let configuration = URLSessionConfiguration.default
+        configuration.timeoutIntervalForRequest = 10
+        let session = URLSession(configuration: configuration)
+        session.dataTask(with: url) { data, _, error in
             guard let data = data, error == nil else {
                 completion(.failure(.invalidData))
                 return

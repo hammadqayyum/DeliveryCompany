@@ -16,7 +16,6 @@ struct DeliveryCellConstants {
 
 struct PlaceHolderImage {
     static let placeHolderImage: String = "rectangle"
-
 }
 
 struct StringsConstant {
