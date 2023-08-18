@@ -12,7 +12,7 @@ final class DeliveriesListViewController: UIViewController {
     private var activityIndicator: UIActivityIndicatorView!
     lazy var tableView: UITableView = {
         let tableView = UITableView()
-        tableView.rowHeight = 100
+        tableView.rowHeight = DeliveryTableView.rowHeight
         tableView.separatorStyle = .none
         tableView.delegate = self
         tableView.dataSource = self

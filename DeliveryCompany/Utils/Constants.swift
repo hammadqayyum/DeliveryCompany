@@ -20,6 +20,7 @@ struct PlaceHolderImage {
 
 struct DeliveryTableView {
     static let cellIdentifier: String = "DeliveryViewCell"
+    static let rowHeight: CGFloat = 100
 }
 
 struct StringsConstant {
