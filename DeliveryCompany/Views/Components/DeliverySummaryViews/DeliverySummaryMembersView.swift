@@ -41,12 +41,12 @@ final class DeliverySummaryMembersView: UIView {
         self.setupCustomAppearance()
         let topLeftLabel = UILabel()
         topLeftLabel.setupLabelCustomAppearance()
-        topLeftLabel.text = DeliverySummaryConstants.from
+        topLeftLabel.text = StringsConstant.from
         
         
         let bottomLeftLabel = UILabel()
         bottomLeftLabel.setupLabelCustomAppearance()
-        bottomLeftLabel.text = DeliverySummaryConstants.to
+        bottomLeftLabel.text = StringsConstant.to
         
         
         addSubview(topLeftLabel)

@@ -53,8 +53,8 @@ final class DeliveryCellMembersView: UIView {
     }
     
     func updateLabels(from: String = "", to: String = "") {
-        upperLabel.text = "From: \(from)"
-        lowerLabel.text = "To: \(to)"
+        upperLabel.text = "\(StringsConstant.from): \(from)"
+        lowerLabel.text = "\(StringsConstant.to): \(to)"
     }
 }
 

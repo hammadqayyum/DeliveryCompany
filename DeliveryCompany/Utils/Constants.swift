@@ -19,6 +19,12 @@ struct PlaceHolderImage {
 
 }
 
+struct StringsConstant {
+    static let from: String = "From"
+    static let to: String = "To"
+    static let delivery: String = "Delivery Fee"
+}
+
 
 struct DeliveryCellRightConstants {
     static let verticalSpacing: CGFloat = 20
@@ -32,9 +38,6 @@ struct DeliverySummaryConstants {
     static let labelsVerticalSpacing: CGFloat = 20
     static let imageWidhtHeight: CGFloat = 180
     static let cornerRadius: CGFloat = 10
-    static let from: String = "From"
-    static let to: String = "To"
-    static let delivery: String = "Delivery Fee"
 }
 
 struct DeliverySummaryButtonConstants {

@@ -11,7 +11,7 @@ final class DeliverySummaryFeeView: UIView {
     
      private let leftLabel: UILabel = {
         let label = UILabel()
-         label.text = DeliverySummaryConstants.delivery
+         label.text = StringsConstant.delivery
         label.setupLabelCustomAppearance()
         return label
     }()
