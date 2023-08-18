@@ -9,13 +9,13 @@ import UIKit
 
 final class DeliverySummaryMembersView: UIView {
     
-    private let topRightLabel: UILabel = {
+    private let senderLabel: UILabel = {
         let label = UILabel()
         label.setupLabelCustomAppearance()
         return label
     }()
     
-    private let bottomRightLabel: UILabel = {
+    private let recieverLabel: UILabel = {
         let label = UILabel()
         label.setupLabelCustomAppearance()
         return label
@@ -32,8 +32,8 @@ final class DeliverySummaryMembersView: UIView {
     }
     
     func setMembers(delivery: DeliveryDataModel) {
-        topRightLabel.text = delivery.senderName()
-        bottomRightLabel.text = delivery.recieverName()
+        senderLabel.text = delivery.senderName()
+        recieverLabel.text = delivery.recieverName()
     }
     
     private func setupUI() {
@@ -50,14 +50,14 @@ final class DeliverySummaryMembersView: UIView {
         
         
         addSubview(topLeftLabel)
-        addSubview(topRightLabel)
+        addSubview(senderLabel)
         addSubview(bottomLeftLabel)
-        addSubview(bottomRightLabel)
+        addSubview(recieverLabel)
         
         topLeftLabel.translatesAutoresizingMaskIntoConstraints = false
-        topRightLabel.translatesAutoresizingMaskIntoConstraints = false
+        senderLabel.translatesAutoresizingMaskIntoConstraints = false
         bottomLeftLabel.translatesAutoresizingMaskIntoConstraints = false
-        bottomRightLabel.translatesAutoresizingMaskIntoConstraints = false
+        recieverLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             // Top left label constraints
@@ -67,8 +67,8 @@ final class DeliverySummaryMembersView: UIView {
             
             
             // Top right label constraints
-            topRightLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -DeliverySummaryConstants.horizontalSpacing),
-            topRightLabel.topAnchor.constraint(equalTo: topAnchor, constant: DeliverySummaryConstants.verticalSpacing),
+            senderLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -DeliverySummaryConstants.horizontalSpacing),
+            senderLabel.topAnchor.constraint(equalTo: topAnchor, constant: DeliverySummaryConstants.verticalSpacing),
             
             
             // Bottom left label constraints
@@ -77,8 +77,8 @@ final class DeliverySummaryMembersView: UIView {
             
             
             // Bottom right label constraints
-            bottomRightLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -DeliverySummaryConstants.horizontalSpacing),
-            bottomRightLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -DeliverySummaryConstants.verticalSpacing),
+            recieverLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -DeliverySummaryConstants.horizontalSpacing),
+            recieverLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -DeliverySummaryConstants.verticalSpacing),
         ])
     }
 }

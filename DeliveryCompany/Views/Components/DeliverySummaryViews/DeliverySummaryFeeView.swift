@@ -9,7 +9,7 @@ import UIKit
 
 final class DeliverySummaryFeeView: UIView {
     
-     private let leftLabel: UILabel = {
+     private let deliveryLabel: UILabel = {
         let label = UILabel()
          label.text = StringsConstant.delivery
         label.setupLabelCustomAppearance()
@@ -34,7 +34,7 @@ final class DeliverySummaryFeeView: UIView {
     
     private func setupView() {
         self.setupCustomAppearance()
-        addSubview(leftLabel)
+        addSubview(deliveryLabel)
         addSubview(feeLabel)
         setupConstraints()
     }
@@ -45,13 +45,13 @@ final class DeliverySummaryFeeView: UIView {
     
     private func setupConstraints() {
             NSLayoutConstraint.activate([
-                leftLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: DeliverySummaryConstants.horizontalSpacing),
-                leftLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: DeliverySummaryConstants.horizontalSpacing),
-                leftLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -DeliverySummaryConstants.horizontalSpacing),
+                deliveryLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: DeliverySummaryConstants.horizontalSpacing),
+                deliveryLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: DeliverySummaryConstants.horizontalSpacing),
+                deliveryLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -DeliverySummaryConstants.horizontalSpacing),
 
                 
                 feeLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -DeliverySummaryConstants.horizontalSpacing),
-                feeLabel.centerYAnchor.constraint(equalTo: leftLabel.centerYAnchor),
+                feeLabel.centerYAnchor.constraint(equalTo: deliveryLabel.centerYAnchor),
             ])
         }
 

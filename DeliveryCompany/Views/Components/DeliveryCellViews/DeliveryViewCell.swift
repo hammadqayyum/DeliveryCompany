@@ -9,7 +9,7 @@ import UIKit
 
 final class DeliveryViewCell: UITableViewCell {
     private var delivery: DeliveryDataModel!
-    let midViewDeliveryCell = DeliveryCellMembersView()
+    let midContainer = DeliveryCellMembersView()
     let rightContainer = DeliveryCellFeeView()
     let containerView = UIView()
     
@@ -24,7 +24,7 @@ final class DeliveryViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         containerView.translatesAutoresizingMaskIntoConstraints = false
         containerView.addSubview(leftImageView)
-        containerView.addSubview(midViewDeliveryCell)
+        containerView.addSubview(midContainer)
         containerView.addSubview(rightContainer)
         containerView.setupCustomAppearance()
         contentView.addSubview(containerView)
@@ -53,9 +53,9 @@ final class DeliveryViewCell: UITableViewCell {
             leftImageView.widthAnchor.constraint(equalToConstant: DeliveryCellConstants.imageHeightWidht)
         ])
         NSLayoutConstraint.activate([
-            midViewDeliveryCell.leadingAnchor.constraint(equalTo: leftImageView.trailingAnchor, constant: DeliveryCellConstants.horizontalSpacing),
-            midViewDeliveryCell.topAnchor.constraint(equalTo: containerView.topAnchor),
-            midViewDeliveryCell.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
+            midContainer.leadingAnchor.constraint(equalTo: leftImageView.trailingAnchor, constant: DeliveryCellConstants.horizontalSpacing),
+            midContainer.topAnchor.constraint(equalTo: containerView.topAnchor),
+            midContainer.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
 
         ])
         
@@ -78,7 +78,7 @@ final class DeliveryViewCell: UITableViewCell {
     func configCell(delivery: DeliveryDataModel) {
         self.delivery = delivery
         setandSaveImage(delivery: self.delivery)
-        midViewDeliveryCell.updateLabels(from: self.delivery.senderName(), to: self.delivery.recieverName())
+        midContainer.updateLabels(from: self.delivery.senderName(), to: self.delivery.recieverName())
         rightContainer.updateView(delivery: self.delivery)
     }
 }

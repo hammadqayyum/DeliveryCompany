@@ -9,13 +9,13 @@ import UIKit
 
 final class DeliveryCellMembersView: UIView {
     
-    private let upperLabel: UILabel = {
+    private let senderLabel: UILabel = {
         let label = UILabel()
         label.setupLabelCustomAppearance()
         return label
     }()
     
-    private let lowerLabel: UILabel = {
+    private let recieverLabel: UILabel = {
         let label = UILabel()
         label.setupLabelCustomAppearance()
         return label
@@ -32,29 +32,29 @@ final class DeliveryCellMembersView: UIView {
     }
     
     private func setupUI() {
-        addSubview(upperLabel)
-        addSubview(lowerLabel)
+        addSubview(senderLabel)
+        addSubview(recieverLabel)
         
     }
     
     private func setupConstraints() {
         self.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            upperLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            upperLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            upperLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: DeliveryCellRightConstants.verticalSpacing),
-            upperLabel.heightAnchor.constraint(equalTo: lowerLabel.heightAnchor),
-            upperLabel.bottomAnchor.constraint(equalTo: lowerLabel.topAnchor),
+            senderLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            senderLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            senderLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: DeliveryCellRightConstants.verticalSpacing),
+            senderLabel.heightAnchor.constraint(equalTo: recieverLabel.heightAnchor),
+            senderLabel.bottomAnchor.constraint(equalTo: recieverLabel.topAnchor),
             
-            lowerLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            lowerLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            lowerLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -DeliveryCellRightConstants.verticalSpacing),
+            recieverLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            recieverLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            recieverLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -DeliveryCellRightConstants.verticalSpacing),
         ])
     }
     
     func updateLabels(from: String = "", to: String = "") {
-        upperLabel.text = "\(StringsConstant.from): \(from)"
-        lowerLabel.text = "\(StringsConstant.to): \(to)"
+        senderLabel.text = "\(StringsConstant.from): \(from)"
+        recieverLabel.text = "\(StringsConstant.to): \(to)"
     }
 }
 

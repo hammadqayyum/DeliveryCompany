@@ -17,7 +17,7 @@ final class DeliveryCellFeeView: UIView {
         return imageView
     }()
     
-    private let bottomRightLabel: UILabel = {
+    private let feeLabel: UILabel = {
         let label = UILabel()
         label.setupLabelCustomAppearance()
         return label
@@ -39,26 +39,26 @@ final class DeliveryCellFeeView: UIView {
     
     private func setupUI() {
         addSubview(topRightImageView)
-        addSubview(bottomRightLabel)
+        addSubview(feeLabel)
         
     }
     
     private func setupConstraints() {
         self.translatesAutoresizingMaskIntoConstraints = false
         topRightImageView.translatesAutoresizingMaskIntoConstraints = false
-        bottomRightLabel.translatesAutoresizingMaskIntoConstraints = false
+        feeLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             topRightImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -DeliveryCellRightConstants.horizontalSpacing),
             topRightImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: DeliveryCellRightConstants.verticalSpacing),
             
-            bottomRightLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            bottomRightLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -DeliveryCellRightConstants.horizontalSpacing),
-            bottomRightLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -DeliveryCellRightConstants.verticalSpacing),
+            feeLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            feeLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -DeliveryCellRightConstants.horizontalSpacing),
+            feeLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -DeliveryCellRightConstants.verticalSpacing),
         ])
     }
     
     func updateView(delivery: DeliveryDataModel) {
-        bottomRightLabel.text = Utils.calculateTotalCharge(delivery: delivery)
+        feeLabel.text = Utils.calculateTotalCharge(delivery: delivery)
         topRightImageView.isHidden = !delivery.favouriteStatus()
     }
 }
