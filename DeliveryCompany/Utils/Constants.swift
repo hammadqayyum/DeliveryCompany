@@ -23,6 +23,9 @@ struct StringsConstant {
     static let from: String = "From"
     static let to: String = "To"
     static let delivery: String = "Delivery Fee"
+    static let url: String = "https://6285f87796bccbf32d6c0e6a.mockapi.io/deliveries"
+    static let offset: String = "offset"
+    static let limit: String = "limit"
 }
 
 

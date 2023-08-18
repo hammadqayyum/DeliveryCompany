@@ -18,11 +18,11 @@ final class Webservice {
     
     func fetchDeliveries<T: Codable>(offset: Int, limit: Int, completion: @escaping (Result<[T], NetworkError>) -> Void) {
         
-        let baseURL = URL(string: "https://6285f87796bccbf32d6c0e6a.mockapi.io/deliveries")!
+        let baseURL = URL(string: StringsConstant.url)!
         var components = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
         components?.queryItems = [
-            URLQueryItem(name: "offset", value: "\(offset)"),
-            URLQueryItem(name: "limit", value: "\(limit)")
+            URLQueryItem(name: StringsConstant.offset, value: "\(offset)"),
+            URLQueryItem(name: StringsConstant.limit, value: "\(limit)")
         ]
         
         guard let url = components?.url else {
