@@ -13,8 +13,7 @@ enum NetworkError: Error {
     case decodingError
 }
 
-final class Webservice {
-    static let instance = Webservice()
+final class Webservice: DeliveriesWebServiceProtocol {
     
     func fetchDeliveries<T: Codable>(offset: Int, limit: Int, completion: @escaping (Result<[T], NetworkError>) -> Void) {
         

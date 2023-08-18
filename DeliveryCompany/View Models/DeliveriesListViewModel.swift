@@ -9,12 +9,16 @@ import Foundation
 import RealmSwift
 
 final class DeliveriesListViewModel {
-    static let instance = DeliveriesListViewModel()
     var deliveries = [DeliveryDataModel]()
     let realm = try! Realm()
     private let pageSize = 20
     var isPaginationNeeded = true
     var servicesCount = 0
+    private var webservice: DeliveriesWebServiceProtocol
+    
+    required init(webservice: DeliveriesWebServiceProtocol) {
+        self.webservice = webservice
+    }
     
     // Below function is only for duplication of data and check the pagination as server response is returning 4 elements only
     func duplicateObjects(array: [Delivery], n: Int) -> [Delivery] {
@@ -33,7 +37,7 @@ final class DeliveriesListViewModel {
         }
         servicesCount += 1
         let offset = deliveries.count
-        Webservice.instance.fetchDeliveries(offset: offset, limit: pageSize) { (result: Result<[Delivery], NetworkError>) in
+        webservice.fetchDeliveries(offset: offset, limit: pageSize) { (result: Result<[Delivery], NetworkError>) in
             switch result {
             case .success(let deliveries):
 //                var nextDeliver = [Delivery]()
@@ -71,5 +75,9 @@ final class DeliveriesListViewModel {
     
     func deliveriesCount() -> Int {
         self.deliveries.count
+    }
+    
+    func getPageSize() -> Int {
+        self.pageSize
     }
 }

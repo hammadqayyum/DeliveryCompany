@@ -8,6 +8,7 @@
 import UIKit
 
 final class DeliveriesListViewController: UIViewController {
+    private var deliveriesViewModel: DeliveriesListViewModel!
     private var activityIndicator: UIActivityIndicatorView!
     lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -24,7 +25,8 @@ final class DeliveriesListViewController: UIViewController {
         setupUI()
         NotificationCenter.default.addObserver(self, selector: #selector(deliveriesFetched), name: .deliveriesFetched, object: nil)
         startLoading()
-        DeliveriesListViewModel.instance.fetchDeliveries()
+        deliveriesViewModel = DeliveriesListViewModel(webservice: Webservice())
+        deliveriesViewModel.fetchDeliveries(readFromLocalStorage: true)
     }
     
     private func setupUI() {
@@ -66,25 +68,25 @@ final class DeliveriesListViewController: UIViewController {
 //MARK: -  TableView Data Source and Delegate
 extension DeliveriesListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return DeliveriesListViewModel.instance.deliveriesCount()
+        return deliveriesViewModel.deliveriesCount()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DeliveryViewCell", for: indexPath) as! DeliveryViewCell
-        if DeliveriesListViewModel.instance.deliveriesCount() >= indexPath.row {
-            let delivery = DeliveriesListViewModel.instance.deliveries[indexPath.row]
+        if deliveriesViewModel.deliveriesCount() >= indexPath.row {
+            let delivery = deliveriesViewModel.deliveries[indexPath.row]
             cell.configCell(delivery: delivery)
         }
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if DeliveriesListViewModel.instance.deliveriesCount() >= indexPath.row {
+        if deliveriesViewModel.deliveriesCount() >= indexPath.row {
             if let cell = tableView.cellForRow(at: indexPath) {
                 let deliveryCell = cell as? DeliveryViewCell
                 Utils.imageData = deliveryCell?.getImageData() ?? Data()
             }
-            let delivery = DeliveriesListViewModel.instance.deliveries[indexPath.row]
+            let delivery = deliveriesViewModel.deliveries[indexPath.row]
             let vc = DeliverySummaryViewController(delivery: delivery)
             navigationController?.pushViewController(vc, animated: true)
         }
@@ -92,10 +94,10 @@ extension DeliveriesListViewController: UITableViewDelegate, UITableViewDataSour
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView.contentSize.height > 0 && scrollView.contentOffset.y > scrollView.contentSize.height - scrollView.bounds.height {
-            if  DeliveriesListViewModel.instance.isPaginationNeeded && DeliveriesListViewModel.instance.servicesCount == 0 {
+            if  deliveriesViewModel.isPaginationNeeded && deliveriesViewModel.servicesCount == 0 {
                 startLoading()
                 tableView.tableFooterView = activityIndicator
-                DeliveriesListViewModel.instance.fetchDeliveries(readFromLocalStorage: true)
+                deliveriesViewModel.fetchDeliveries(readFromLocalStorage: true)
             }
         }
     }

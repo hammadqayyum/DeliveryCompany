@@ -30,7 +30,24 @@
 		68CB82B62A8E086700EAB2B8 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CB82B52A8E086700EAB2B8 /* Utils.swift */; };
 		68CB82B82A8E4D9000EAB2B8 /* UI+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CB82B72A8E4D9000EAB2B8 /* UI+Extensions.swift */; };
 		68CB82BA2A8E769900EAB2B8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CB82B92A8E769900EAB2B8 /* Constants.swift */; };
+		68CB82DC2A8F6EA500EAB2B8 /* DeliveriesWebServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CB82DB2A8F6EA500EAB2B8 /* DeliveriesWebServiceProtocol.swift */; };
+		68CB82EC2A8F6FCF00EAB2B8 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 68CB82EB2A8F6FCF00EAB2B8 /* Realm */; };
+		68CB82EE2A8F6FCF00EAB2B8 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 68CB82ED2A8F6FCF00EAB2B8 /* RealmSwift */; };
+		68CB82F12A8F6FFF00EAB2B8 /* MockWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CB82F02A8F6FFF00EAB2B8 /* MockWebService.swift */; };
+		68CB82F32A8F702700EAB2B8 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 68CB82F22A8F702700EAB2B8 /* SDWebImage */; };
+		68CB82F52A8F702700EAB2B8 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 68CB82F42A8F702700EAB2B8 /* SDWebImageMapKit */; };
+		68CB82F82A8F707200EAB2B8 /* DeliveriesListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CB82F72A8F707200EAB2B8 /* DeliveriesListViewModelTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		68CB82E52A8F6FB300EAB2B8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 681E4A222A8B87340093FCD1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 681E4A292A8B87340093FCD1;
+			remoteInfo = DeliveryCompany;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		681E4A2A2A8B87340093FCD1 /* DeliveryCompany.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeliveryCompany.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -55,6 +72,10 @@
 		68CB82B52A8E086700EAB2B8 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		68CB82B72A8E4D9000EAB2B8 /* UI+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UI+Extensions.swift"; sourceTree = "<group>"; };
 		68CB82B92A8E769900EAB2B8 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		68CB82DB2A8F6EA500EAB2B8 /* DeliveriesWebServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveriesWebServiceProtocol.swift; sourceTree = "<group>"; };
+		68CB82E12A8F6FB300EAB2B8 /* DeliveryCompanyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DeliveryCompanyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		68CB82F02A8F6FFF00EAB2B8 /* MockWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockWebService.swift; sourceTree = "<group>"; };
+		68CB82F72A8F707200EAB2B8 /* DeliveriesListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveriesListViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +89,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		68CB82DE2A8F6FB300EAB2B8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				68CB82F32A8F702700EAB2B8 /* SDWebImage in Frameworks */,
+				68CB82EE2A8F6FCF00EAB2B8 /* RealmSwift in Frameworks */,
+				68CB82F52A8F702700EAB2B8 /* SDWebImageMapKit in Frameworks */,
+				68CB82EC2A8F6FCF00EAB2B8 /* Realm in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -75,7 +107,9 @@
 			isa = PBXGroup;
 			children = (
 				681E4A2C2A8B87340093FCD1 /* DeliveryCompany */,
+				68CB82E22A8F6FB300EAB2B8 /* DeliveryCompanyTests */,
 				681E4A2B2A8B87340093FCD1 /* Products */,
+				68CB82EA2A8F6FCF00EAB2B8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -83,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				681E4A2A2A8B87340093FCD1 /* DeliveryCompany.app */,
+				68CB82E12A8F6FB300EAB2B8 /* DeliveryCompanyTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -90,6 +125,7 @@
 		681E4A2C2A8B87340093FCD1 /* DeliveryCompany */ = {
 			isa = PBXGroup;
 			children = (
+				68CB82DA2A8F6E8D00EAB2B8 /* Protocols */,
 				68CB82B42A8E07A600EAB2B8 /* Utils */,
 				68CB828D2A8BAA9200EAB2B8 /* Model */,
 				68CB828E2A8BAAA600EAB2B8 /* Views */,
@@ -187,6 +223,46 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		68CB82DA2A8F6E8D00EAB2B8 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				68CB82DB2A8F6EA500EAB2B8 /* DeliveriesWebServiceProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		68CB82E22A8F6FB300EAB2B8 /* DeliveryCompanyTests */ = {
+			isa = PBXGroup;
+			children = (
+				68CB82F62A8F705200EAB2B8 /* View Model */,
+				68CB82EF2A8F6FDD00EAB2B8 /* Mocks */,
+			);
+			path = DeliveryCompanyTests;
+			sourceTree = "<group>";
+		};
+		68CB82EA2A8F6FCF00EAB2B8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		68CB82EF2A8F6FDD00EAB2B8 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				68CB82F02A8F6FFF00EAB2B8 /* MockWebService.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		68CB82F62A8F705200EAB2B8 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				68CB82F72A8F707200EAB2B8 /* DeliveriesListViewModelTests.swift */,
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -212,6 +288,30 @@
 			productReference = 681E4A2A2A8B87340093FCD1 /* DeliveryCompany.app */;
 			productType = "com.apple.product-type.application";
 		};
+		68CB82E02A8F6FB300EAB2B8 /* DeliveryCompanyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 68CB82E72A8F6FB300EAB2B8 /* Build configuration list for PBXNativeTarget "DeliveryCompanyTests" */;
+			buildPhases = (
+				68CB82DD2A8F6FB300EAB2B8 /* Sources */,
+				68CB82DE2A8F6FB300EAB2B8 /* Frameworks */,
+				68CB82DF2A8F6FB300EAB2B8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				68CB82E62A8F6FB300EAB2B8 /* PBXTargetDependency */,
+			);
+			name = DeliveryCompanyTests;
+			packageProductDependencies = (
+				68CB82EB2A8F6FCF00EAB2B8 /* Realm */,
+				68CB82ED2A8F6FCF00EAB2B8 /* RealmSwift */,
+				68CB82F22A8F702700EAB2B8 /* SDWebImage */,
+				68CB82F42A8F702700EAB2B8 /* SDWebImageMapKit */,
+			);
+			productName = DeliveryCompanyTests;
+			productReference = 68CB82E12A8F6FB300EAB2B8 /* DeliveryCompanyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -224,6 +324,10 @@
 				TargetAttributes = {
 					681E4A292A8B87340093FCD1 = {
 						CreatedOnToolsVersion = 14.1;
+					};
+					68CB82E02A8F6FB300EAB2B8 = {
+						CreatedOnToolsVersion = 14.1;
+						TestTargetID = 681E4A292A8B87340093FCD1;
 					};
 				};
 			};
@@ -245,6 +349,7 @@
 			projectRoot = "";
 			targets = (
 				681E4A292A8B87340093FCD1 /* DeliveryCompany */,
+				68CB82E02A8F6FB300EAB2B8 /* DeliveryCompanyTests */,
 			);
 		};
 /* End PBXProject section */
@@ -259,6 +364,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		68CB82DF2A8F6FB300EAB2B8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -266,6 +378,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68CB82DC2A8F6EA500EAB2B8 /* DeliveriesWebServiceProtocol.swift in Sources */,
 				68CB82902A8BAAD800EAB2B8 /* DeliveryViewCell.swift in Sources */,
 				68CB82AE2A8CFFB600EAB2B8 /* DeliveryDataModel.swift in Sources */,
 				68CB82B62A8E086700EAB2B8 /* Utils.swift in Sources */,
@@ -287,7 +400,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		68CB82DD2A8F6FB300EAB2B8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				68CB82F82A8F707200EAB2B8 /* DeliveriesListViewModelTests.swift in Sources */,
+				68CB82F12A8F6FFF00EAB2B8 /* MockWebService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		68CB82E62A8F6FB300EAB2B8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 681E4A292A8B87340093FCD1 /* DeliveryCompany */;
+			targetProxy = 68CB82E52A8F6FB300EAB2B8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		681E4A382A8B87350093FCD1 /* LaunchScreen.storyboard */ = {
@@ -473,6 +603,40 @@
 			};
 			name = Release;
 		};
+		68CB82E82A8F6FB300EAB2B8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.DeliveryCompanyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DeliveryCompany.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/DeliveryCompany";
+			};
+			name = Debug;
+		};
+		68CB82E92A8F6FB300EAB2B8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.DeliveryCompanyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DeliveryCompany.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/DeliveryCompany";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -490,6 +654,15 @@
 			buildConfigurations = (
 				681E4A3F2A8B87350093FCD1 /* Debug */,
 				681E4A402A8B87350093FCD1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		68CB82E72A8F6FB300EAB2B8 /* Build configuration list for PBXNativeTarget "DeliveryCompanyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				68CB82E82A8F6FB300EAB2B8 /* Debug */,
+				68CB82E92A8F6FB300EAB2B8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -530,6 +703,26 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 68CB82AF2A8DFEEB00EAB2B8 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
+		};
+		68CB82EB2A8F6FCF00EAB2B8 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 68CB82AF2A8DFEEB00EAB2B8 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		68CB82ED2A8F6FCF00EAB2B8 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 68CB82AF2A8DFEEB00EAB2B8 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+		68CB82F22A8F702700EAB2B8 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 68CB82A42A8CD6FD00EAB2B8 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		68CB82F42A8F702700EAB2B8 /* SDWebImageMapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 68CB82A42A8CD6FD00EAB2B8 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImageMapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
