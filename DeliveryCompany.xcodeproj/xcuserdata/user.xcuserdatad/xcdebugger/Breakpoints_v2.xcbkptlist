@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "0B34C256-537C-4327-8B3B-CEF29D128565"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CAF6EE75-1868-4C4E-B1B0-2979BC51B00E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DeliveryCompany/View Models/DeliveriesListViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "fetchDeliveries(readFromLocalStorage:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BF2034D8-89B5-4BA5-B2F9-60F08D62DEB2"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DeliveryCompany/View Models/DeliveriesListViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "fetchDeliveries(readFromLocalStorage:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "91580031-0A9D-4BC5-B2AF-E5D367B21255"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DeliveryCompany/Service/WebService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "fetchDeliveries(offset:limit:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "03493F66-8890-48B1-A22A-036EC192A59D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DeliveryCompany/Service/WebService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "fetchDeliveries(offset:limit:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "03493F66-8890-48B1-A22A-036EC192A59D - b22aa7f93bd7f454"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DeliveryCompany.Webservice.fetchDeliveries&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable, &#x3c4;_0_0: Swift.Encodable&gt;(offset: Swift.Int, limit: Swift.Int, completion: (Swift.Result&lt;Swift.Array&lt;&#x3c4;_0_0&gt;, DeliveryCompany.NetworkError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "DeliveryCompany"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user/Documents/GitHub/DeliveryCompany/DeliveryCompany/Service/WebService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "46"
+                  endingLineNumber = "46"
+                  offsetFromSymbolStart = "2744">
+               </Location>
+               <Location
+                  uuid = "03493F66-8890-48B1-A22A-036EC192A59D - b22aa7f93bd7f5b1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DeliveryCompany.Webservice.fetchDeliveries&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable, &#x3c4;_0_0: Swift.Encodable&gt;(offset: Swift.Int, limit: Swift.Int, completion: (Swift.Result&lt;Swift.Array&lt;&#x3c4;_0_0&gt;, DeliveryCompany.NetworkError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "DeliveryCompany"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user/Documents/GitHub/DeliveryCompany/DeliveryCompany/Service/WebService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "49"
+                  endingLineNumber = "49"
+                  offsetFromSymbolStart = "2728">
+               </Location>
+               <Location
+                  uuid = "03493F66-8890-48B1-A22A-036EC192A59D - bce6c7c4a1b40058"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in DeliveryCompany.Webservice.fetchDeliveries&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable, &#x3c4;_0_0: Swift.Encodable&gt;(offset: Swift.Int, limit: Swift.Int, completion: (Swift.Result&lt;Swift.Array&lt;&#x3c4;_0_0&gt;, DeliveryCompany.NetworkError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "DeliveryCompany"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user/Documents/GitHub/DeliveryCompany/DeliveryCompany/Service/WebService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "49"
+                  endingLineNumber = "49"
+                  offsetFromSymbolStart = "748">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "77BDF380-2133-447D-81AE-2F3969F55300"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DeliveryCompany/Service/WebService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "fetchDeliveries(offset:limit:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

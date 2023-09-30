@@ -20,12 +20,15 @@ final class DeliveryDataModel: Object{
     
     convenience init(delivery: Delivery) {
         self.init()
-        self.goodsPicture = delivery.goodsPicture
-        self.deliveryFee  = delivery.deliveryFee
-        self.surcharge    = delivery.surcharge
-        self.toReciever   = delivery.route.end
-        self.fromSender   = delivery.sender.name
-        self.remarks      = delivery.remarks
+        self.goodsPicture = delivery.goodsPicture ?? ""
+        self.deliveryFee  = delivery.deliveryFee ?? ""
+        self.surcharge    = delivery.surcharge ?? ""
+        if let route = delivery.route, let sender = delivery.sender {
+            self.toReciever   = route.end
+            self.fromSender   = sender.name
+        }
+        
+        self.remarks      = delivery.remarks ?? ""
     }
     
     func updateIsFavourite() {

@@ -37,9 +37,14 @@ final class Webservice: DeliveriesWebServiceProtocol {
                 completion(.failure(.invalidData))
                 return
             }
-            
-            let newsSourceResponse = try? JSONDecoder().decode([T].self, from: data)
-            completion(.success(newsSourceResponse ?? []))
+            do {
+                let newsSourceResponse = try JSONDecoder().decode([T].self, from: data)
+                completion(.success(newsSourceResponse ?? []))
+
+            }
+            catch {
+                print(error.localizedDescription)
+            }
             
         }.resume()
         
