@@ -16,7 +16,7 @@ final class DeliveryCellFeeViewTests: XCTestCase {
         super.setUp()
         let route = Route(start: "start", end: "end")
         let sender = Sender(phone: "1234567890", name: "HQ", email: "ha@gmail.com")
-        let delivery = Delivery(id: "1", remarks: "Fragile", goodsPicture: "http://google.com", deliveryFee: "10.00", surcharge: "5.00", route: route, sender: sender)
+        let delivery = Delivery(id: "1", remarks: "Fragile", pickupTime: "", goodsPicture: "http://google.com", deliveryFee: "10.00", surcharge: "5.00", route: route, sender: sender, createdAt: "", name: "", avatar: "")
         self.delivery = DeliveryDataModel(delivery: delivery)
         deliveryFeeView = DeliveryCellFeeView()
     }

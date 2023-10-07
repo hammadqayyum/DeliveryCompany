@@ -20,7 +20,7 @@ final class MockWebService: DeliveriesWebServiceProtocol {
         } else {
             let route = Route(start: "start", end: "end")
             let sender = Sender(phone: "1234567890", name: "HQ", email: "ha@gmail.com")
-            let delivery = Delivery(id: "1", remarks: "Fragile", goodsPicture: "http://google.com", deliveryFee: "10.00", surcharge: "5.00", route: route, sender: sender)
+            let delivery = Delivery(id: "1", remarks: "Fragile", pickupTime: "", goodsPicture: "http://google.com", deliveryFee: "10.00", surcharge: "5.00", route: route, sender: sender, createdAt: "", name: "", avatar: "")
             let deliveries = (0..<numberOfItemsToReturn).map { _ in delivery }
             completion(.success(deliveries as! [T]))
         }
